@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>latihan </title>
+  <style>
+  html, body , *{
+    margin:0;
+    padding:0;
+    background-color:#ccc;
+    }
+  h1, p{
+    text-align:center;
+    font-family:calibri;
+  }
+  </style>
+</head>
+<body>
+  <h1>Latihan Menyeleksi Angka Prima</h1>
+  <p> angka prima adalah angka yang hanya bisa habis di bagi satu atau oleh dirinya sendiri berbeda dengan angka ganjil, sebab ganjil adalah angka genap di tambah satu contoh 9 adalah angka ganjil tetapi bukan bilangan prima sebab 9 bisa habis di bagi 3, di bagi 1, dan di bagi 9. sedangkan prima hanya bisa habis di bagi satu atau dirinya sendiri</p>
+  <br>
+  <p>berikut adalah cara mendapatkan bilangan prima di dalam javascript</p>
+   <script>
+/* cara menemukan bilangan prima dan memasukannya kedalam array*/
+
+const arr = [2];
+
+/*array harus di isi angka 2 sebab dia adalah bilangan prima pertama akan tetapi agak sulit menyeleksi nya dengan kondisi yang akan kita pakai untuk lebih jelasnya lihat komentar di bawah*/
+
+let number = 3 ;
+/*kenapa angka tiga karena bilangan prima pertama adalah angka dua dan agar bisa di masukan ke dalam looping for*/
+
+
+while (arr.length < 5)/* di sini kita akan  membuat array ter isi dengan 5 angka */
+{
+for( let i = 2;i < number;i++){
+/*kenapa i = 2 sebab 2 adalah habis bagi terkecil jika angka 2 tidak di masukan ke dalam array terlebih dahulu maka dengan menggunakan kondisi ini angka 2 tidak akan terseleksi */
+if (number % i === 0)
+{
+/* ingat % di sini artinya habis di bagi bukan operasi pembagian apalagi persen
+,jika number dan variable i bertemu kondisi ini maka sudah di pastikan bahwa itu bukan bilangan prima (sebab bisa habis di bagi oleh angka selain oleh angka 1 dan dirinya sendiri) maka tidak akan di masukan ke dalam array tapi perlu kita tambah number nya agar kondisi for menyeleksi angka berikutnya apakah prima atau bukan*/
+number++;
+break;
+}
+if( number - 1 === i)
+{
+/* jika sudah masuk ke kondisi ini maka di pastikan bahwa angka ini adalah bilangan prima "angka 9 tidak mungkin masuk ke kondisi ini sebab 9 masih bisa habis di bagi 3 jadi bakal langsung di lewati number nya" ( i akan bertambah terus di belakang layar sampai bertemu salah satu kondisi misalnya angka 4 sudah di lewati sebab 4 habis di bagi 2 (4 % 2 === 0) dan number bertambah lalu bertemu dengan number 5 maka yang terjadi di belakang layar adalah seperti ini:
+  "kondisi if pertama"(5 % 2 === 0) / "kondisi if kedua"(5 - 1 === 2 ) jika false di tambah lagi i nya jadi 
+  "kondisi if pertama"(5 % 3 === 0) / "kondisi if kedua"(5 - 1 === 3) jika masih false di tambah lagi i nya jadi
+  "kondisi if pertama"(5 % 4 === 0) / (5 - 1 === 4) nah jika salah satu kondisi sudah true maka number akan bertambah dalam rangka menyeleksi angka berikutnya
+  dan for akan memulai dari awal dengan variable i masih di angka 2 dan number yang sudah bertambah menjadi angka 6 
+  lalu karena number 5 masuk kedalam kondisi if kedua maka angka 5 itu di masukan ke dalam array) dan array baru akan bertambah sampai while menjadi false */
+arr.push(number);
+number++;
+break;
+}
+  }
+}
+/*selama number dan i tidak memenuhi syarat masuk ke dalam if maka variable i akan terus bertambah di belakang layar(memori/mesin v8)(sampai bertemu kondisi if) akan tetapi number tidak akan bertambah (karena tidak masuk kondisi if)jika ada salah satu syarat if yang terpenuhi maka number baru akan bertambah dan pengulangan for akan di ulangi lagi dengan variable 2 (karena terkena kondisi break di dalam if)selama array.length pada perulangan while masih true maka for akan selalu mengulang dengan number baru (sebab terkena pertambahan if) */
+
+console.log(arr);
+    
+    
+  </script>
+</body>
+</html>
